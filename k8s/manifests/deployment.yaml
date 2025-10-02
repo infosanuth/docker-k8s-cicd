@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-k8s-cicd
+  labels:
+    app: docker-k8s-cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-k8s-cicd
+  template:
+    metadata:
+      labels:
+        app: docker-k8s-cicd
+    spec:
+      containers:
+      - name: docker-k8s-cicd
+        image: sanuth79/docker-k8s-cicd:v1
+        ports:
+        - containerPort: 8081
